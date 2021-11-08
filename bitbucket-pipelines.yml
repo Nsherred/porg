@@ -3,7 +3,7 @@ pipelines:
   default:
     - step:
         script:
-          - apt-get install -yq yq
+          - apt-get update && apt-get install -y yq
           - yarn install
           - yarn run bundle
           - VERSION=$(npm run version --silent)

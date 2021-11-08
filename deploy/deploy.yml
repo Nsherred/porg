@@ -28,7 +28,7 @@ spec:
         - name: regcred
       containers:
         - name: porg-app
-          image: registry.nicronomicon.dev/porg:1.0.1
+          image: registry.nicronomicon.dev/porg:1.0.0
           ports:
             - containerPort: 80
           resources:
