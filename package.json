@@ -1,6 +1,6 @@
 {
-  "name": "nicronomicon",
-  "version": "0.1.0",
+  "name": "porg",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
     "startDev": "webpack --config=webpack.config.js --watch --mode=development",

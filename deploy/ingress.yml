@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  name: porg-app
+  namespace: porg-ns
+spec:
+  tls:
+    - hosts:
+      - porg.aahyeehaah.com
+      - www.porg.aahyeehaah.com
+      secretName: porg-aahyeehaah-tls
+  rules:
+  - host: www.porg.aahyeehaah.com
+    http: &http_rules
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: porg-service
+            port: 
+             number: 80
