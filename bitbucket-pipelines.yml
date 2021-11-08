@@ -8,6 +8,7 @@ pipelines:
           - yarn run bundle
           - VERSION=$(npm run version --silent)
           - yq eval -i ".spec.template.spec.containers[0].image = \"registry.nicronomicon.dev/porg:$VERSION\"" ./deploy/deploy.yml
+          - git status
           - git add ./deploy/deploy.yml
           - git commit -m "DEV-2 [skip ci] update deployment version"
           - git push
