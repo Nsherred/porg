@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  labels:
+    app.kubernetes.io/instance: porg
   name: porg-ns
 ---
 apiVersion: v1
