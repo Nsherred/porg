@@ -1,12 +1,13 @@
 {
   "name": "porg",
-  "version": "0.0.5",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "startDev": "webpack --config=webpack.config.js --watch --mode=development",
     "bundle": "webpack --config ./webpack.config.js --mode=production",
     "test": "NODE_ENV=test mocha -r ts-node/register -r src/test/setup.js src/**/*.test.ts",
-    "start": "webpack-dev-server --mode=development --open"
+    "start": "webpack-dev-server --mode=development --open",
+    "version": "echo $npm_package_version"
   },
   "dependencies": {
     "reflect-metadata": "0.1.13",
