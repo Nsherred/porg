@@ -1,19 +1,29 @@
 image: node:10.15.0
 pipelines:
-  default:
+  branches:
+    master:
     - step:
         script:
           - wget https://github.com/mikefarah/yq/releases/download/v4.14.1/yq_linux_amd64.tar.gz -O - | tar xz && mv yq_linux_amd64 /usr/bin/yq
           - yarn install
           - yarn run bundle
           - VERSION=$(npm run version --silent)
+          - docker login registry.nicronomicon.dev -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
+          - docker build -t registry.nicronomicon.dev/porg:$VERSION .
+          - docker push registry.nicronomicon.dev/porg:$VERSION
           - yq eval -i ".spec.template.spec.containers[0].image = \"registry.nicronomicon.dev/porg:$VERSION\"" ./deploy/deploy.yml
           - git status
           - git add ./deploy/deploy.yml
           - git commit -m "DEV-2 [skip ci] update deployment version"
+          - git tag "$VERSION"
+          - git push origin "$VERSION"
           - git push
-          - docker login registry.nicronomicon.dev -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASSWORD
-          - docker build -t registry.nicronomicon.dev/porg:$VERSION .
-          - docker push registry.nicronomicon.dev/porg:$VERSION
+        services:
+          - docker
+  default:
+    - step:
+        script:
+          - yarn install
+          - yarn run bundle
         services:
           - docker
