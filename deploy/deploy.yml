@@ -28,7 +28,7 @@ spec:
         - name: regcred
       containers:
         - name: porg-app
-          image: registry.nicronomicon.dev/porg:1.0.2
+          image: registry.nicronomicon.dev/porg:1.0.3
           ports:
             - containerPort: 80
           resources:
@@ -39,9 +39,9 @@ spec:
               memory: "256Mi"
               cpu: "500m"
           volumeMounts:
-          - name: config
-            mountPath: "/etc/config"
-            readOnly: true
+            - name: config
+              mountPath: "/etc/config"
+              readOnly: true
       volumes:
         - name: config
           configMap:
