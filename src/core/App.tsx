@@ -42,7 +42,7 @@ export default class App extends React.Component<{}, State> {
 
   render() {
     const yelling = this.state.isYelling
-    const words = yelling ? '' : 'Click Me!'
+    const words = yelling ? '' : 'Comfort Porg'
     const index = yelling ? 1 : 0
 
     return <div className="container">
