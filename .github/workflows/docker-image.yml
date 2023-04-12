@@ -18,6 +18,4 @@ jobs:
       run: docker login registry.nicronomicon.dev -u $docker_hub_user -p $docker_hub_password
     - name: Build the Docker image
       run: docker build -t registry.nicronomicon.dev/porg:$VERSION .
-    - name: Push Docker imag
-      run: docker push registry.nicronomicon.dev/porg:$VERSION
       
