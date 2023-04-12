@@ -18,11 +18,15 @@ jobs:
       run: |
         VERSION=$(npm run version --silent)
         echo "version=$VERSION" >> $GITHUB_ENV  
+    - name: Build
+      run: | 
+        yarn install
+        yarn run bundle
     - name: Login to Docker registry
       env:
         USER: ${{ secrets.docker_hub_user }}
         PASS: ${{ secrets.docker_hub_password }}
       run: docker login registry.nicronomicon.dev -u $USER -p $PASS
     - name: Build the Docker image
-      run: docker build -t registry.nicronomicon.dev/porg:$version .
+      run: docker build -t registry.nicronomicon.dev/porg:$version -t registry.nicronomicon.dev/porg:latest .
       
