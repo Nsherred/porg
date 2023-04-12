@@ -30,4 +30,8 @@ jobs:
       run: docker login registry.nicronomicon.dev -u $USER -p $PASS
     - name: Build the Docker image
       run: docker build -t registry.nicronomicon.dev/porg:$version -t registry.nicronomicon.dev/porg:latest .
+    - name: Push Images
+      run: |
+        docker push registry.nicronomicon.dev/porg:$version
+        docker push registry.nicronomicon.dev/porg:latest
       
