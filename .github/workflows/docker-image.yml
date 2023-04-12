@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login to Docker registry
+      run: docker login registry.nicronomicon.dev -u $docker_hub_user -p $docker_hub_password
+    - name: Build the Docker image
+      run: docker build -t registry.nicronomicon.dev/porg:$VERSION .
+    - name: Push Docker imag
+      run: docker push registry.nicronomicon.dev/porg:$VERSION
+      
