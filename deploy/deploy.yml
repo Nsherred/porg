@@ -25,12 +25,13 @@ spec:
       labels:
         app: porg-app
     spec:
-      terminca
+      terminationGracePeriodSeconds: 30
       imagePullSecrets:
         - name: regcred
       containers:
         - name: porg-app
           image: registry.nicronomicon.dev/porg:latest
+          imagePullPolicy: always
           ports:
             - containerPort: 80
           resources:
