@@ -34,7 +34,7 @@ export default class App extends React.Component<{}, State> {
     console.log('loaded')
     this.sound.currentTime = startTime
     this.sound.crossOrigin = 'anonymous'
-    this.sound.addEventListener('ended', function () {
+    this.sound.addEventListener('ended', function() {
       this.currentTime = startTime;
       return this.play()
     }, false)
@@ -42,7 +42,7 @@ export default class App extends React.Component<{}, State> {
 
   render() {
     const yelling = this.state.isYelling
-    const words = yelling ? '' : 'Comfort Porg'
+    const words = yelling ? '' : 'Click'
     const index = yelling ? 1 : 0
 
     return <div className="container">
@@ -50,13 +50,13 @@ export default class App extends React.Component<{}, State> {
       <ImageViewer videos={PorgVideos} active={index} onClick={this.onClick}>
         <p id="words" className="centered">{words}</p>
       </ImageViewer>
-      <Install/>
+      <Install />
     </div>
   }
 
   onClick = () => {
-    const {isYelling} = this.state
-    this.setState({isYelling: !isYelling})
+    const { isYelling } = this.state
+    this.setState({ isYelling: !isYelling })
     if (isYelling) {
       this.sound.pause()
     } else {
