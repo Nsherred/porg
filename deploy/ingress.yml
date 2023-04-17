@@ -4,17 +4,17 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    # nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
   name: porg-app
   namespace: porg-ns
 spec:
   tls:
     - hosts:
-      - www.porg.aahyeehaah.com
+      - porg.aahyeehaah.com
       secretName: porg-aahyeehaah-tls
   rules:
-  - host: www.porg.aahyeehaah.com
+  - host: porg.aahyeehaah.com
     http:
       paths:
       - path: /
