@@ -44,4 +44,4 @@ jobs:
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.X" version tag for this action
+        uses: actions/deploy-pages@v4
