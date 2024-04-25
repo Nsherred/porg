@@ -40,14 +40,11 @@ export default class App extends React.Component<{}, State> {
 
   render() {
     const yelling = this.state.isYelling
-    const words = yelling ? '' : 'Click'
     const index = yelling ? 1 : 0
 
     return <div className="container">
 
-      <ImageViewer videos={PorgVideos} active={index} onClick={this.onClick}>
-        <p id="words" className="centered">{words}</p>
-      </ImageViewer>
+      <ImageViewer videos={PorgVideos} active={index} onClick={this.onClick} />
     </div>
   }
 

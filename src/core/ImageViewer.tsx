@@ -9,7 +9,7 @@ interface Props {
   videos: Videos
   active: number
   onClick: () => void
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export default class ImageViewer extends React.Component<Props> {
