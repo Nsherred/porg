@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const Loading: React.FC<{ className?: string }> = props =>
+const Loading: React.FC<{ className?: string }> = () =>
   <span>
     <svg viewBox="0 0 100 100" version="1.1" className="loading">
       <circle
