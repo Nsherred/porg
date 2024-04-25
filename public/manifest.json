@@ -4,12 +4,12 @@
   "description": "it's a Porg but louder",
   "icons": [
     {
-      "src": "/assets/img/icons-192.png",
+      "src": "/images/icons-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/img/icons-512.png",
+      "src": "/images/icons-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

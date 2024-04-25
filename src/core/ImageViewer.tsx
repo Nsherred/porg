@@ -9,12 +9,13 @@ interface Props {
   videos: Videos
   active: number
   onClick: () => void
+  children: React.ReactNode
 }
 
 export default class ImageViewer extends React.Component<Props> {
 
   render() {
-    const {active, videos: {webm, mp4}} = this.props
+    const { active, videos: { webm, mp4 } } = this.props
     return <div>
       <video
         key={active}
@@ -24,8 +25,8 @@ export default class ImageViewer extends React.Component<Props> {
         onClick={this.props.onClick}
         crossOrigin="anonymous"
       >
-        <source src={webm[active]} type="video/webm"/>
-        <source src={mp4[active]} type="video/mp4"/>
+        <source src={webm[active]} type="video/webm" />
+        <source src={mp4[active]} type="video/mp4" />
 
         <p className="highlight">
           This is fallback content to display for user agents
